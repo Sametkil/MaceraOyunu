@@ -1,2 +1,8 @@
-package monsters;public class Zombie {
+package monsters;
+
+public class Zombie extends Obstacle{
+
+    public Zombie() {
+        super(1, "Zombi", 3, 10,4);
+    }
 }

@@ -1,2 +1,7 @@
-package player;public class Knight {
+package player;
+
+public class Knight extends GameChar{
+    public Knight() {
+        super(3,"Şövalye",8,24 ,5 );
+    }
 }
