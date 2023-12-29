@@ -27,7 +27,15 @@ public abstract class BattleLocation extends Location {
         selectCase = selectCase.toUpperCase();
         if (selectCase.equals("S") && combat(obsNumber)) {
                 System.out.println(this.getName() + " tüm düşmanları yendiniz !");
-                return true;
+                if (this.award.equals("Yemek")){
+                    getPlayer().getInvertory().setFood(true);
+                } else if (this.award.equals("Su")) {
+                    getPlayer().getInvertory().setWater(true);
+                } else if (this.award.equals("Odun")) {
+                    getPlayer().getInvertory().setWood(true);
+                }
+
+            return true;
         }
 
         if (this.getPlayer().getHealth()<=0){
@@ -69,6 +77,7 @@ public abstract class BattleLocation extends Location {
                 System.out.println(this.getObstacle().getAward()+" para kazandınız !");
                 this.getPlayer().setMoney(this.getPlayer().getMoney()+this.getObstacle().getAward());
                 System.out.println("Güncel paranız : "+this.getPlayer().getMoney());
+
             } else {
                 return false;
             }
@@ -110,6 +119,7 @@ public abstract class BattleLocation extends Location {
     public Obstacle getObstacle() {
         return obstacle;
     }
+
 
     public void setObstacle(Obstacle obstacle) {
         this.obstacle = obstacle;
